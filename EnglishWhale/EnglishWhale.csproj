@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{620801DC-73AD-4B81-9259-9F534583F46D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>EnglishWhale</RootNamespace>
+    <AssemblyName>EnglishWhale</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxInterop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WMPLib.1.0.0\lib\AxInterop.WMPLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WMPLib.1.0.0\lib\Interop.WMPLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.7.5\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controller\MainController.cs" />
+    <Compile Include="Models\QuizWithAnswers.cs" />
+    <Compile Include="Models\WordsPair.cs" />
+    <Compile Include="Services\CsvWritter.cs" />
+    <Compile Include="Services\LearningService.cs" />
+    <Compile Include="View\CustomButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\IMute.cs" />
+    <Compile Include="View\LearningForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LearningForm.Designer.cs">
+      <DependentUpon>LearningForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LanguageDictionary.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\QuizzesChooserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\QuizzesChooserForm.Designer.cs">
+      <DependentUpon>QuizzesChooserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ChooseAnswerQuizForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ChooseAnswerQuizForm.Designer.cs">
+      <DependentUpon>ChooseAnswerQuizForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\CsvReader.cs" />
+    <Compile Include="Services\DownloadService\IDownloader.cs" />
+    <Compile Include="Services\DownloadService\Implementation\Downloader.cs" />
+    <Compile Include="Services\DownloadService\Implementation\DownloaderBufferedProxy.cs" />
+    <Compile Include="Services\EnglishDetector.cs" />
+    <Compile Include="View\WrittenQuizForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\WrittenQuizForm.Designer.cs">
+      <DependentUpon>WrittenQuizForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\WrittenQuizPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\WrittenQuizPanel.Designer.cs">
+      <DependentUpon>WrittenQuizPanel.cs</DependentUpon>
+    </Compile>
+    <None Include="Resources\button_back_good.bmp" />
+    <EmbeddedResource Include="View\LearningForm.resx">
+      <DependentUpon>LearningForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="View\QuizzesChooserForm.resx">
+      <DependentUpon>QuizzesChooserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ChooseAnswerQuizForm.resx">
+      <DependentUpon>ChooseAnswerQuizForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="images\button_back.png" />
+    <None Include="images\button_back_mouse_clicked.png" />
+    <None Include="images\button_back_mouse_enter.png" />
+    <None Include="images\background_1.png" />
+    <None Include="images\button_back_bad.png" />
+    <None Include="images\button_back_good.png" />
+    <None Include="images\background_2.png" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="View\WrittenQuizForm.resx">
+      <DependentUpon>WrittenQuizForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\WrittenQuizPanel.resx">
+      <DependentUpon>WrittenQuizPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="images\volume.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
